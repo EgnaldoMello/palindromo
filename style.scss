@@ -1,0 +1,133 @@
+$preto: black;
+$amarelo: #ebff03;
+$branco: white;
+$cemporcento: 100%;
+$zeropx : 0px;
+$font-texto: 20px;
+$font-titulo: 80px;
+$line-height1: 200%;
+@mixin m($valor) {
+  @if $valor == 800 {
+    @media only screen and (max-width: 800px) { @content };
+  } @else if $valor == 670 {
+    @media only screen and (max-width: 670px) { @content };
+  }
+}
+
+body {
+  margin: $zeropx;
+  padding: $zeropx;
+  background-color: $preto;
+}
+img {
+  width: $cemporcento;
+  height: 250px;
+  object-fit: none;
+  @include m(800) {
+      width: $cemporcento;
+      height: 250px;
+      object-fit: fill;
+  }
+}
+@font-face {
+  font-family: Nico Moji;
+  src: url('NicoMoji-Regular.ttf');
+}
+div {
+  display: grid;
+  justify-items: center;
+  width: 600px;
+  margin: 0 auto;
+  padding: $zeropx;
+  height: 100vh;
+  @include m(670) {
+    width: $cemporcento;
+  }
+}
+form {
+  display: flex;
+  justify-self: start;
+  width: $cemporcento;
+  @include m(800) {
+    justify-content: center;
+  }
+  @include m(670) {
+    display: grid;
+    justify-items: center;
+  }
+}
+#texto-input {
+  height: 30px;
+  margin: $zeropx;
+  padding: $zeropx;
+  margin-right: 30px;
+  flex-grow: 1;
+  @include m(800) {
+      width: 350px;
+      flex-grow: 0;}
+  @include m(670) {
+    margin-right: $zeropx;
+  }
+  }
+#botao {
+  width: min-content;
+  height: 45px;
+  margin: $zeropx;
+  padding: $zeropx 5px;
+  border-radius: 10%;
+  background-color: $amarelo;
+  font-weight: 900;
+}
+span {
+  height: 60px;
+  width: max-content;
+  color: $branco;
+  text-align: justify;
+  align-self: self-end;
+  margin: $zeropx;
+  line-height: $line-height1;
+  font-family: 'Roboto Mono';
+  font-size: $font-texto;
+  @include m(800) {
+    align-self: start;
+  }
+}
+p {
+  color: $branco;
+  text-align: justify;
+  align-self: self-end;
+  margin: $zeropx;
+  padding-top: 95px;
+  padding-bottom: 20px;
+  line-height: $line-height1;
+  font-family: 'Roboto Mono';
+  font-size: $font-texto;
+  @include m(800) {
+    font-size: 15px;
+    padding: $zeropx;
+    align-self: start;
+  }
+  @include m(670) {
+    width: 300px;
+  }
+}
+h1 {
+  color: $branco;
+  align-self: center;
+  padding: 15px $zeropx;
+  margin: $zeropx;
+  font-family: 'Nico Moji';
+  font-size: $font-titulo;
+  letter-spacing: 10px;
+  text-shadow: $zeropx 7px 10px rgba(253, 253, 253, 0.5);
+  @include m(800) {
+      font-size: 40px;
+      letter-spacing: $zeropx;
+  }
+}
+footer {
+  color: $branco;
+  align-self: self-end;
+  font-family: 'Roboto Mono';
+  padding: 10px $zeropx;
+}
