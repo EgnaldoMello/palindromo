@@ -1,6 +1,6 @@
 const textoDoInput = document.getElementById('texto-input');
 const botao = document.getElementById('botao');
-const textoAviso = document.getElementById('texto-aviso');
+const textoAviso = document.querySelector('span');
 
 botao.addEventListener('click', (event) => {
   event.preventDefault();
@@ -12,7 +12,7 @@ botao.addEventListener('click', (event) => {
   } else if (textoOriginal === textoOriginal.split('').reverse().join('')) {
     textoAviso.innerText = `${textoDoInput.value} é um Palíndromo`;
   } else {
-    textoAviso.innerHTML = `${textoDoInput.value} não é um Palíndromo`;
+    textoAviso.innerText = `${textoDoInput.value} não é um Palíndromo`;
   }
   textoDoInput.addEventListener('click', () => {
     textoAviso.innerText = '';
